@@ -4,6 +4,7 @@ import { StatusBar } from "react-native";
 
 import { Container } from "../components/Container";
 import { Logo } from "../components/Logo";
+import { QRCode } from "../components/QRCode";
 
 class Home extends Component {
   static propTypes = {};
@@ -11,8 +12,9 @@ class Home extends Component {
   render() {
     return (
       <Container>
-        <StatusBar backgroundColor="red" translucent={false} />
+        <StatusBar />
         <Logo />
+        <QRCode />
       </Container>
     );
   }
