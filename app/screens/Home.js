@@ -5,6 +5,7 @@ import { StatusBar } from "react-native";
 import { Container } from "../components/Container";
 import { Logo } from "../components/Logo";
 import { QRCode } from "../components/QRCode";
+import { Info } from "../components/Info";
 
 class Home extends Component {
   static propTypes = {};
@@ -15,6 +16,7 @@ class Home extends Component {
         <StatusBar />
         <Logo />
         <QRCode />
+        <Info />
       </Container>
     );
   }
