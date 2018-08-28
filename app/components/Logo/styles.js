@@ -28,8 +28,9 @@ const styles = EStyleSheet.create({
     textAlign: "center",
     fontWeight: "100",
     color: "$orange",
-    width: "$textWidth",
-    fontSize: 11
+    fontSize: 16,
+    letterSpacing: 1,
+    width: "$textWidth"
   }
 });
 
