@@ -1,20 +1,55 @@
-import React from "react";
-import SvgUri from "react-native-svg-uri";
-import EStyleSheet from "react-native-extended-stylesheet";
-import { View } from "react-native";
+import React, { Component } from "react";
+import { Text, View, StyleSheet, Alert } from "react-native";
+import { Constants, BarCodeScanner, Permissions } from "expo";
 
-import styles from "./styles";
+export default class QRCode extends Component {
+  state = {
+    hasCameraPermission: null
+  };
 
-const QRCode = () => (
-  <View style={styles.container}>
-    <SvgUri
-      style={styles.image}
-      width="60"
-      height="60"
-      fill={EStyleSheet.value("$orange")}
-      source={require("./images/qr-code.svg")}
-    />
-  </View>
-);
+  componentDidMount() {
+    this._requestCameraPermission();
+  }
 
-export default QRCode;
+  _requestCameraPermission = async () => {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({
+      hasCameraPermission: status === "granted"
+    });
+  };
+
+  _handleBarCodeRead = data => {
+    Alert.alert("Scan successful!", JSON.stringify(data));
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        {this.state.hasCameraPermission === null ? (
+          <Text>...</Text>
+        ) : this.state.hasCameraPermission === false ? (
+          <Text>É necessário a autorização do uso da camera</Text>
+        ) : (
+          <BarCodeScanner
+            onBarCodeRead={this._handleBarCodeRead}
+            style={styles.scanner}
+          />
+        )}
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    position: "absolute",
+    bottom: 130,
+    backgroundColor: "#FFFFFF",
+    borderColor: "#FF6347",
+    borderWidth: 2
+  },
+  scanner: {
+    height: 250,
+    width: 250
+  }
+});

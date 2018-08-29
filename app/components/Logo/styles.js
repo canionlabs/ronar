@@ -25,10 +25,11 @@ const styles = EStyleSheet.create({
     height: "$logoHeight"
   },
   text: {
+    alignSelf: "center",
     textAlign: "center",
     fontWeight: "100",
     color: "$orange",
-    fontSize: 16,
+    fontSize: 14,
     letterSpacing: 1,
     width: "$textWidth"
   }
