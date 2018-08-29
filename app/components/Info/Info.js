@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, Button, TouchableOpacity, Linking } from "react-native";
+import { View, Text, TouchableOpacity, Linking } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
-import SvgUri from "react-native-svg-uri";
 import Modal from "react-native-modal";
 
+import { Button } from "../../components/Button";
 import styles from "./styles";
 
 class Info extends Component {
@@ -41,23 +41,18 @@ class Info extends Component {
               <Text style={styles.link}>Visite nosso site</Text>
             </TouchableOpacity>
             <View style={styles.buttonContainer}>
-              <Button
-                onPress={this._toggleModal}
-                title="Voltar"
-                color={EStyleSheet.value("$orange")}
-                style={styles.btn}
-              />
+              <TouchableOpacity onPress={this._toggleModal}>
+                <Button text="Voltar" />
+              </TouchableOpacity>
             </View>
           </View>
         </Modal>
-        <TouchableOpacity onPress={this._toggleModal}>
-          <SvgUri
-            width="20"
-            height="20"
-            fill={EStyleSheet.value("$white")}
-            source={require("./images/question.svg")}
-          />
-        </TouchableOpacity>
+
+        <View>
+          <TouchableOpacity onPress={this._toggleModal}>
+            <Button text="Precisa de ajuda?" />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
