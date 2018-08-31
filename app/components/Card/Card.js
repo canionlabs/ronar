@@ -5,7 +5,7 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import SvgUri from "react-native-svg-uri";
 
 const styles = EStyleSheet.create({
-  $cardWidth: Dimensions.get("window").width * (80 / 100), // %
+  $cardWidth: Dimensions.get("window").width * (90 / 100), // %
 
   card: {
     marginVertical: 5,
