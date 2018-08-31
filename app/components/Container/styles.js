@@ -6,6 +6,11 @@ const styles = EStyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "$primaryBackground"
+  },
+  padContainer: {
+    backgroundColor: "$primaryBackground",
+    paddingTop: 80,
+    zIndex: -10
   }
 });
 
